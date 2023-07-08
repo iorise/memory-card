@@ -20,6 +20,28 @@ const Main = () => {
     setMaxCards(maxCardsNumber)
     setMaxScore(maxScoreNumber)
   }
+
+  const handleCardClick = (name: string) => () => {
+    const cardIndex = allCards!.findIndex((card) => card.name === name)
+    const { isClicked } = allCards![cardIndex]
+    if (isClicked) {
+      setGameOver(true)
+      return
+    }
+
+    setCurrentScore((prevCurrentScore) => prevCurrentScore! + 1)
+    setAllCards((prevAllCards) => {
+      const newCards = [...prevAllCards!]
+      newCards[cardIndex].isClicked = true
+      return newCards
+    })
+
+    if (currentScore === maxScore) {
+      setGameOver(true)
+      setWin(true)
+    }
+  }
+
   
   return <div>Main</div>;
 };
