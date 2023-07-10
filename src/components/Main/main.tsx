@@ -18,6 +18,7 @@ import Complete from "./complete";
 import GameWrapper from "./game-wrapper";
 import Loader from "../ui/loader";
 import ErrorSection from "./error-section";
+import Footer from "./footer";
 
 const Main = () => {
   const [allCards, setAllCards] = useState<AllCardType | null>(null);
@@ -110,7 +111,7 @@ const Main = () => {
   };
   return (
     <div className="w-full min-h-screen flex flex-col justify-center items-center gap-8">
-      <Header currentScore={currentScore} currentCards={currentCards} />
+      <Header currentScore={currentScore} />
       <GameWrapper>
       {loading ? (
         <Loader />
