@@ -17,6 +17,7 @@ import Header from "./header";
 import Complete from "./complete";
 import GameWrapper from "./game-wrapper";
 import Loader from "../ui/loader";
+import ErrorSection from "./error-section";
 
 const Main = () => {
   const [allCards, setAllCards] = useState<AllCardType | null>(null);
@@ -29,29 +30,30 @@ const Main = () => {
   const [loading, setLoading] = useState(false);
   const [win, setWin] = useState(false);
   const [gameOver, setGameOver] = useState(false);
+  const [error, setError] = useState(false)
 
   const sleep = (ms: number) => {
     return new Promise((resolve) => setTimeout(resolve, ms));
   };
 
+  const fetchCards = async () => {
+    setLoading(true);
+
+    try {
+      const cards: AllCardType = await cacheImages(animeCharacter, maxScore!);
+      setAllCards(cards);
+    } catch (error) {
+      console.log(error);
+      setError(true)
+    }
+
+    await sleep(1000)
+
+    setLoading(false);
+  };
+
   useEffect(() => {
     if (!maxScore) return;
-
-    const fetchCards = async () => {
-      let cards: AllCardType;
-      setLoading(true);
-
-      try {
-        cards = await cacheImages(animeCharacter, maxScore!);
-      } catch (error) {
-        console.log(error);
-        setLoading(false);
-        return;
-      }
-
-      await sleep(1500);
-      setAllCards(cards);
-    };
 
     fetchCards();
   }, [maxScore]);
@@ -62,8 +64,9 @@ const Main = () => {
     const cards = getRandomCards(allCards, maxCards!, true) as CurrentCardType;
 
     setCurrentCards(cards);
-    setLoading(false);
-  }, [allCards]);
+  }, [allCards, maxCards]);
+
+
 
   const handleDifficultyMode = (mode: DifficultyModesType) => () => {
     const [maxCardsNumber, maxScoreNumber]: [MaxCardsType, MaxScoreType] =
@@ -109,23 +112,25 @@ const Main = () => {
     <div className="w-full min-h-screen flex flex-col justify-center items-center gap-8">
       <Header currentScore={currentScore} currentCards={currentCards} />
       <GameWrapper>
-        {win ? (
-            <Complete won resetGame={resetGame} />
-        ) : gameOver && !win ? (
-            <Complete lost resetGame={resetGame} />
-        ) : currentCards ? (
-          <GameSection
-            maxScoreNumber={maxScore!}
-            currentScore={currentScore!}
-            currentCards={currentCards}
-            resetGame={resetGame}
-            handleCardClick={handleCardClick}
-          />
-        ) : loading ? (
-          <Loader />
-        ) : (
-          <ControlSection handleDifficultyMode={handleDifficultyMode} />
-        )}
+      {loading ? (
+        <Loader />
+      ) : error ? (
+        <ErrorSection />
+      ) : win ? (
+        <Complete won resetGame={resetGame} />
+      ) : gameOver && !win ? (
+        <Complete lost resetGame={resetGame} />
+      ) : currentCards ? (
+        <GameSection
+          maxScoreNumber={maxScore!}
+          currentScore={currentScore!}
+          currentCards={currentCards}
+          resetGame={resetGame}
+          handleCardClick={handleCardClick}
+        />
+      ) : (
+        <ControlSection handleDifficultyMode={handleDifficultyMode} />
+      )}
       </GameWrapper>
     </div>
   );
