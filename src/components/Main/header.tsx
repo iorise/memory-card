@@ -1,16 +1,16 @@
+import { CurrentCardType } from "@/types";
 import React from "react";
 
 interface HeaderProps {
   currentScore: number | null;
+  currentCards: CurrentCardType | null;
 }
 
-const Header = ({ currentScore }: HeaderProps) => {
+const Header = ({ currentScore, currentCards }: HeaderProps) => {
   return (
-    <header>
-      <h1 className="text-4xl font-bold stroke-pink-300 stroke-3 outline-4 outline p-2 rounded-tl-lg rounded-br-lg">
-        MEMORY CARD GAME
-      </h1>
-    </header>
+    <div className={`transition-all duration-500 animate-fade-in text-center ${currentScore || currentScore === 0 ? "text-3xl" : "text-5xl"}`}>
+      <h1 className="font-bold bg-gradient-to-r to-pink-300 from-blue-300 bg-clip-text text-transparent">MEMORY CARD GAME</h1>
+    </div>
   );
 };
 

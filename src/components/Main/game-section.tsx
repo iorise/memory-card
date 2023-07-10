@@ -24,10 +24,10 @@ const GameSection = ({
   }
   return (
     <div className="w-full flex flex-col gap-10 justify-center text-center">
-      <p className="text-4xl font-bold text-pink-300">
+      <p className="text-4xl font-bold bg-gradient-to-l from-pink-300 to-blue-600 text-transparent bg-clip-text">
         {currentScore} / {maxScoreNumber}
       </p>
-      <div className="grid justify-center gap-6 md:[grid-template-columns:repeat(auto-fit,200px)] [grid-template-columns:repeat(auto-fit,100px)]">
+      <div className="grid justify-center md:gap-10 gap-6 md:[grid-template-columns:repeat(auto-fit,200px)] [grid-template-columns:repeat(auto-fit,100px)]">
         {currentCards.map((item, index) => (
           <div key={index}>
             <CardImage
