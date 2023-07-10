@@ -1,32 +1,63 @@
+import AkaneImage from "@/assets/character/akane.jpg";
+import AkiImage from "@/assets/character/aki.jpg";
+import ArimaImage from "@/assets/character/arima.jpg";
+import BocchiImage from "@/assets/character/bocchi.jpg";
+import ChikaImage from "@/assets/character/chika.jpg";
+import ChizuruImage from "@/assets/character/chizuru.jpg";
+import FuminoImage from "@/assets/character/fumino.jpg";
+import HayasakaImage from "@/assets/character/hayasaka.jpg";
+import HiroiImage from "@/assets/character/hiroi.jpg";
+import HoshinoImage from "@/assets/character/hoshino.jpg";
+import HotaruImage from "@/assets/character/hotaru.jpg";
+import IchikaImage from "@/assets/character/ichika.jpg";
+import ItsukiImage from "@/assets/character/itsuki.jpg";
+import KaguyaImage from "@/assets/character/kaguya.jpg";
+import KitaImage from "@/assets/character/kita.jpg";
+import MikuImage from "@/assets/character/miku.jpg";
+import NanamiImage from "@/assets/character/nanami.jpg";
+import NazunaImage from "@/assets/character/nazuna.jpg";
+import NijikaImage from "@/assets/character/nijika.jpg";
+import NinoImage from "@/assets/character/nino.jpg";
+import RengeImage from "@/assets/character/renge.jpg";
+import RinImage from "@/assets/character/rin.jpg";
+import RubyImage from "@/assets/character/ruby.jpg";
+import RukaImage from "@/assets/character/ruka.jpg";
+import RyoImage from "@/assets/character/ryo.jpg";
+import ShiroganeImage from "@/assets/character/shirogane.jpg";
+import SumiImage from "@/assets/character/sumi.jpg";
+import YotsubaImage from "@/assets/character/yotsuba.jpg";
+import YuigahamaImage from "@/assets/character/yuigahama.jpg";
+import YukinoshitaImage from "@/assets/character/yukinoshita.jpg";
+
 export const animeCharacter = [
-  { name: "Akane", image: require("@/assets/character/akane.jpg") },
-  { name: "Aki", image: require("@/assets/character/aki.jpg") },
-  { name: "Arima", image: require("@/assets/character/arima.jpg") },
-  { name: "Bocchi", image: require("@/assets/character/bocchi.jpg") },
-  { name: "Chika", image: require("@/assets/character/chika.jpg") },
-  { name: "Chizuru", image: require("@/assets/character/chizuru.jpg") },
-  { name: "Fumino", image: require("@/assets/character/fumino.jpg") },
-  { name: "Hayasaka", image: require("@/assets/character/hayasaka.jpg") },
-  { name: "Hiroi", image: require("@/assets/character/hiroi.jpg") },
-  { name: "Hoshino", image: require("@/assets/character/hoshino.jpg") },
-  { name: "Hotaru", image: require("@/assets/character/hotaru.jpg") },
-  { name: "Ichika", image: require("@/assets/character/ichika.jpg") },
-  { name: "Itsuki", image: require("@/assets/character/itsuki.jpg") },
-  { name: "Kaguya", image: require("@/assets/character/kaguya.jpg") },
-  { name: "Kita", image: require("@/assets/character/kita.jpg") },
-  { name: "Miku", image: require("@/assets/character/miku.jpg") },
-  { name: "Nanami", image: require("@/assets/character/nanami.jpg") },
-  { name: "Nazuna", image: require("@/assets/character/nazuna.jpg") },
-  { name: "Nijika", image: require("@/assets/character/nijika.jpg") },
-  { name: "Nino", image: require("@/assets/character/nino.jpg") },
-  { name: "Renge", image: require("@/assets/character/renge.jpg") },
-  { name: "Rin", image: require("@/assets/character/rin.jpg") },
-  { name: "Ruby", image: require("@/assets/character/ruby.jpg") },
-  { name: "Ruka", image: require("@/assets/character/ruka.jpg") },
-  { name: "Ryo", image: require("@/assets/character/ryo.jpg") },
-  { name: "Shirogane", image: require("@/assets/character/shirogane.jpg") },
-  { name: "Sumi", image: require("@/assets/character/sumi.jpg") },
-  { name: "Yotsuba", image: require("@/assets/character/yotsuba.jpg") },
-  { name: "Yuigahama", image: require("@/assets/character/yuigahama.jpg") },
-  { name: "Yukinoshita", image: require("@/assets/character/yukinoshita.jpg") },
-].map((character) => ({...character, isClicked: false}));
+  { name: "Akane", image: AkaneImage },
+  { name: "Aki", image: AkiImage },
+  { name: "Arima", image: ArimaImage },
+  { name: "Bocchi", image: BocchiImage },
+  { name: "Chika", image: ChikaImage },
+  { name: "Chizuru", image: ChizuruImage },
+  { name: "Fumino", image: FuminoImage },
+  { name: "Hayasaka", image: HayasakaImage },
+  { name: "Hiroi", image: HiroiImage },
+  { name: "Hoshino", image: HoshinoImage },
+  { name: "Hotaru", image: HotaruImage },
+  { name: "Ichika", image: IchikaImage },
+  { name: "Itsuki", image: ItsukiImage },
+  { name: "Kaguya", image: KaguyaImage },
+  { name: "Kita", image: KitaImage },
+  { name: "Miku", image: MikuImage },
+  { name: "Nanami", image: NanamiImage },
+  { name: "Nazuna", image: NazunaImage },
+  { name: "Nijika", image: NijikaImage },
+  { name: "Nino", image: NinoImage },
+  { name: "Renge", image: RengeImage },
+  { name: "Rin", image: RinImage },
+  { name: "Ruby", image: RubyImage },
+  { name: "Ruka", image: RukaImage },
+  { name: "Ryo", image: RyoImage },
+  { name: "Shirogane", image: ShiroganeImage },
+  { name: "Sumi", image: SumiImage },
+  { name: "Yotsuba", image: YotsubaImage },
+  { name: "Yuigahama", image: YuigahamaImage },
+  { name: "Yukinoshita", image: YukinoshitaImage },
+].map((character) => ({ ...character, isClicked: false }));

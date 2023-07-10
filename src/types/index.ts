@@ -1,6 +1,8 @@
+import { StaticImageData } from "next/image";
+
 export type CardType = {
   name: string;
-  image: string;
+  image: StaticImageData;
   isClicked: boolean;
 };
 
@@ -12,6 +14,8 @@ export type CurrentCardType =
   | [CardType, CardType, CardType, CardType, CardType];
 
 export type DifficultyModesType = "easy" | "medium" | "hard"
+
 export type MaxScoreType = 10 | 20 | 30
+
 export type MaxCardsType = 3 | 4 | 5
 
